@@ -35,9 +35,9 @@ package org.opensearch.search.fetch.subphase.highlight;
 import org.apache.lucene.search.highlight.Encoder;
 import org.apache.lucene.search.uhighlight.Passage;
 import org.apache.lucene.search.uhighlight.PassageFormatter;
-import org.apache.lucene.search.uhighlight.Snippet;
 import org.opensearch.index.mapper.annotatedtext.AnnotatedTextFieldMapper.AnnotatedText;
 import org.opensearch.index.mapper.annotatedtext.AnnotatedTextFieldMapper.AnnotatedText.AnnotationToken;
+import org.opensearch.lucene.search.uhighlight.Snippet;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -237,7 +237,7 @@ public class AnnotatedPassageFormatter extends PassageFormatter {
             // add 1 for the fieldvalue separator character
             fieldValueOffset += fieldValueAnnotations.textMinusMarkup.length() + 1;
         }
-        return intersectingAnnotations.toArray(new AnnotationToken[intersectingAnnotations.size()]);
+        return intersectingAnnotations.toArray(new AnnotationToken[0]);
     }
 
     private void append(StringBuilder dest, String content, int start, int end) {
